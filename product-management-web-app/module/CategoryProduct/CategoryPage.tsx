@@ -10,9 +10,10 @@ import Paper from "@mui/material/Paper";
 import { Button } from "@mui/material";
 import AxiosGet from "../../@Jahid/APIResource/AxiosAPIGet";
 import { useCallback, useEffect, useState } from "react";
-import ProductAddEdit from "./ProductAddEdit";
-import ProductDetails from "./ProductDetails";
+import CategoryAddEdit from "./CategoryAddEdit";
+import CategoryDetails from "./CategoryDetails";
 import AddProduct from "./AddProduct";
+import {routes} from "../../@Jahid/Common/apiRoutes";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -34,16 +35,16 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-const ProductPage = () => {
+const CategoryPage = () => {
   const [products, setProducts] = useState<any>([]);
   const [isOpenAddEditModal, setIsOpenAddEditModal] = useState(false);
   const [isOpenDetailsModal, setIsOpenDetailsModal] = useState(false);
   const [isOpenProductAddModal, setIsOpenProductAddModal] = useState(false);
-  const [catagoryId, setCatagoryId] = useState<number | null>(null);
+  const [categoryId, setCategoryId] = useState<number | null>(null);
   const [isToggleTable, setIsToggleTable] = useState<boolean>(false);
 
   useEffect(() => {
-    AxiosGet("https://localhost:44310/api/Product").then((res) => {
+    AxiosGet(routes.PRIVATE.CATEGORY_AP).then((res) => {
       setProducts(res?.data);
     });
   }, [isToggleTable]);
@@ -60,7 +61,7 @@ const ProductPage = () => {
   }, []);
 
   const openDetailsModal = useCallback((itemId: number | null = null) => {
-    setCatagoryId(itemId);
+    setCategoryId(itemId);
     setIsOpenDetailsModal(true);
   }, []);
 
@@ -69,7 +70,7 @@ const ProductPage = () => {
   }, []);
 
   const openProductAddModal = useCallback((itemId: number | null = null) => {
-    setCatagoryId(itemId);
+    setCategoryId(itemId);
     setIsOpenProductAddModal(true);
   }, []);
 
@@ -128,15 +129,15 @@ const ProductPage = () => {
       </TableContainer>
 
       {isOpenAddEditModal && (
-        <ProductAddEdit
+        <CategoryAddEdit
           onClose={closeAddEditModal}
           refreshDataTable={refreshDataTable}
         />
       )}
 
       {isOpenDetailsModal && (
-        <ProductDetails
-          catagoryId={catagoryId}
+        <CategoryDetails
+          categoryId={categoryId}
           onClose={closeDetailsModal}
           openAddProduct={openProductAddModal}
           refreshDataTable={refreshDataTable}
@@ -144,7 +145,7 @@ const ProductPage = () => {
       )}
       {isOpenProductAddModal && (
         <AddProduct
-          catagoryId={catagoryId}
+          catagoryId={categoryId}
           onClose={closeProductAddModal}
           refreshDataTable={refreshDataTable}
         />
@@ -152,4 +153,4 @@ const ProductPage = () => {
     </>
   );
 };
-export default ProductPage;
+export default CategoryPage;

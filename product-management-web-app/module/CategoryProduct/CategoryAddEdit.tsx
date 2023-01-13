@@ -5,10 +5,11 @@ import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup/dist/yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 import TextField from "@mui/material/TextField";
 import AxiosPost from "../../@Jahid/APIResource/AxiosAPIPost";
 import { Grid } from "@mui/material";
+import {routes} from "../../@Jahid/Common/apiRoutes";
 
 const style = {
   position: "absolute" as "absolute",
@@ -27,11 +28,11 @@ interface IProps {
   refreshDataTable: () => void;
 }
 
-const ProductAddEdit = ({ refreshDataTable, ...props }: IProps) => {
+const CategoryAddEdit = ({ refreshDataTable, ...props }: IProps) => {
   const validationSchema = useMemo(() => {
     return yup.object().shape({
       name: yup.string().trim().required().label("Name"),
-      model: yup.string().trim().required().label("Email"),
+      discription: yup.string().trim().required().label("Email"),
     });
   }, []);
   const {
@@ -46,7 +47,7 @@ const ProductAddEdit = ({ refreshDataTable, ...props }: IProps) => {
 
   const onSubmit = async (data: any) => {
     try {
-      await AxiosPost(data, "https://localhost:44310/api/Product");
+      await AxiosPost(data, routes.PRIVATE.CATEGORY_AP);
       props.onClose();
       refreshDataTable();
     } catch (e) {
@@ -77,12 +78,12 @@ const ProductAddEdit = ({ refreshDataTable, ...props }: IProps) => {
             <TextField
               margin="normal"
               fullWidth
-              id="model"
-              label="Model"
-              autoComplete="model"
+              id="discription"
+              label="discription"
+              autoComplete="discription"
               autoFocus
-              helperText={errors.model?.message}
-              {...register("model")}
+              helperText={errors.discription?.message}
+              {...register("discription")}
             />
             <Grid container spacing={2}>
               <Grid item xs={6}>
@@ -106,4 +107,4 @@ const ProductAddEdit = ({ refreshDataTable, ...props }: IProps) => {
     </div>
   );
 };
-export default ProductAddEdit;
+export default CategoryAddEdit;

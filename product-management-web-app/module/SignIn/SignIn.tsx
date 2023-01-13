@@ -17,6 +17,7 @@ import * as yup from "yup";
 import { useMemo } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import AxiosPost from "../../@Jahid/APIResource/AxiosAPIPost";
+import {routes} from "../../@Jahid/Common/apiRoutes";
 
 function Copyright(props: any) {
   return (
@@ -61,7 +62,7 @@ const SignIn = () => {
     try {
       const response = await AxiosPost(
         data,
-        "https://localhost:44310/api/Login"
+        routes.PUBLIC.LOGIN
       );
       if (response?.data == true) {
         router.push("/product");

@@ -10,6 +10,7 @@ import TableBody from "@mui/material/TableBody";
 import TableContainer from "@mui/material/TableContainer";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import { styled } from "@mui/material/styles";
+import {routes} from "../../@Jahid/Common/apiRoutes";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -42,21 +43,21 @@ const style = {
   p: 4,
 };
 interface IProps {
-  catagoryId: number | null;
+  categoryId: number | null;
   onClose: () => void;
-  openAddProduct: () => void;
+  openAddProduct: (cId:number|null) => void;
   refreshDataTable: () => void;
 }
-const ProductDetails = ({ catagoryId, refreshDataTable, ...props }: IProps) => {
+const CategoryDetails = ({ categoryId, refreshDataTable, ...props }: IProps) => {
   const [products, setProducts] = useState<any>([]);
   useEffect(() => {
-    AxiosGet("https://localhost:44310/api/ProductDetails").then((res) => {
+    AxiosGet(routes.PRIVATE.CATEGORY_PRODUCTS(categoryId)).then((res) => {
       setProducts(res?.data);
     });
   }, []);
   const handleOnClick = () => {
     props.onClose();
-    props.openAddProduct(catagoryId);
+    props.openAddProduct(categoryId);
   };
   return (
     <div>
@@ -107,4 +108,4 @@ const ProductDetails = ({ catagoryId, refreshDataTable, ...props }: IProps) => {
     </div>
   );
 };
-export default ProductDetails;
+export default CategoryDetails;

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UDbIHpCTcMbHjpmDn8RzcW/5Pg0EtQqhZJGWrOewsMcGixo7kisocI2tUCDXmkQzIEllx1pzP3pIcR8NVlRnMw==",
+  "dgSpecHash": "AzRITvaQWcQZ7g6yZPk+ereB7wtzNbA5+nGxStqpPC8juOUCK92qM+0Fwryt8L07vLIkPAAkR9GL5f42QZOrUg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Asus\\OneDrive\\Desktop\\ProductManagementApp\\ProductManagementApp.csproj",
+  "projectFilePath": "C:\\Users\\Asus\\OneDrive\\Desktop\\Product-management\\ProductManagementApp\\ProductManagementApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Asus\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

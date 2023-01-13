@@ -9,6 +9,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import TextField from "@mui/material/TextField";
 import AxiosPost from "../../@Jahid/APIResource/AxiosAPIPost";
 import { Grid } from "@mui/material";
+import {routes} from "../../@Jahid/Common/apiRoutes";
 
 const style = {
   position: "absolute" as "absolute",
@@ -52,7 +53,7 @@ const AddProduct = ({ catagoryId, refreshDataTable, ...props }: IProps) => {
   const onSubmit = async (data: any) => {
     data.pid = catagoryId;
     try {
-      await AxiosPost(data, "https://localhost:44310/api/ProductDetails");
+      await AxiosPost(data, routes.PRIVATE.ADD_PRODUCT);
       props.onClose();
       refreshDataTable();
     } catch (e) {

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProductManagementApp.Data;
@@ -6,38 +7,39 @@ using ProductManagementApp.Models;
 
 namespace ProductManagementApp.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("private/")]
     [ApiController]
     [EnableCors]
-    public class ProductController : Controller
+    public class ProductController : ControllerBase
     {
-        
         private readonly ProductManagementDBContext _context;
 
         public ProductController(ProductManagementDBContext context) => _context = context;
-        [HttpGet]
+        [HttpGet("product")]
         public async Task<IEnumerable<Product>> Get()
-            => await _context.Products.ToListAsync();
+            => await _context.ProductDetails.ToListAsync();
 
 
-        [HttpGet("{id}")]
+        [HttpGet("product/{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var issue = await _context.Products.FindAsync(id);
+            var issue = await _context.ProductDetails.FindAsync(id);
             return issue == null ? NotFound() : Ok(issue);
         }
 
-        [HttpPost]
+        [HttpGet("category-product/{pid}")]
+        public async Task<IEnumerable<Product>> GetByProductId(int pid)=> await _context.ProductDetails.Where(x => x.PID == pid).ToListAsync();
+
+
+        [HttpPost("product")]
         [ProducesResponseType(StatusCodes.Status201Created)]
-        public async Task<IActionResult> Create(Product product)
+        public async Task<IActionResult> Create(Product detail)
         {
-            await _context.Products.AddAsync(product);
+            
+            await _context.ProductDetails.AddAsync(detail);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetById), new { id = product.Id }, product);
+            return CreatedAtAction(nameof(GetById), new { id = detail.Id }, detail);
         }
-        
-
-
     }
 }

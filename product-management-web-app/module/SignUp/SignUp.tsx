@@ -15,6 +15,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Face6Outlined } from "@mui/icons-material";
 import AxiosPost from "../../@Jahid/APIResource/AxiosAPIPost";
+import {routes} from "../../@Jahid/Common/apiRoutes";
 
 function Copyright(props: any) {
   return (
@@ -56,7 +57,7 @@ const SignUpForm = () => {
   });
   const onSubmit = async (data: any) => {
     try {
-      await AxiosPost(data, "https://localhost:44310/api/User");
+      await AxiosPost(data, routes.PRIVATE.CREATE_USER);
       alert("Sign Up Complete");
       router.push("/sign-in");
     } catch (e) {

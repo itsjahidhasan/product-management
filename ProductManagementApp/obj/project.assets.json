@@ -2230,11 +2230,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Asus\\OneDrive\\Desktop\\ProductManagementApp\\ProductManagementApp.csproj",
+      "projectUniqueName": "C:\\Users\\Asus\\OneDrive\\Desktop\\Product-management\\ProductManagementApp\\ProductManagementApp.csproj",
       "projectName": "ProductManagementApp",
-      "projectPath": "C:\\Users\\Asus\\OneDrive\\Desktop\\ProductManagementApp\\ProductManagementApp.csproj",
+      "projectPath": "C:\\Users\\Asus\\OneDrive\\Desktop\\Product-management\\ProductManagementApp\\ProductManagementApp.csproj",
       "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Asus\\OneDrive\\Desktop\\ProductManagementApp\\obj\\",
+      "outputPath": "C:\\Users\\Asus\\OneDrive\\Desktop\\Product-management\\ProductManagementApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",

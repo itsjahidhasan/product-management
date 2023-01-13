@@ -7,7 +7,7 @@ using ProductManagementApp.Models;
 
 namespace ProductManagementApp.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("private/")]
     [ApiController]
     [EnableCors]
     public class UserController : ControllerBase
@@ -16,19 +16,19 @@ namespace ProductManagementApp.Controllers
 
         public UserController(ProductManagementDBContext context) => _context = context;
 
-        [HttpGet]
+        [HttpGet("user")]
         public async Task<IEnumerable<User>> Get()
             => await _context.Users.ToListAsync();
 
 
-        [HttpGet("{id}")]
+        [HttpGet("user/{id}")]
         public async Task<IActionResult> GetById(int id)
         {
             var issue = await _context.Users.FindAsync(id);
             return issue == null ? NotFound() : Ok(issue);
         }
 
-        [HttpPost]
+        [HttpPost("user")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         public async Task<IActionResult> Create(User user)
         {

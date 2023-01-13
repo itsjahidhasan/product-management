@@ -2,7 +2,7 @@ import * as React from "react";
 import Head from "next/head";
 import styles from "../../styles/Home.module.css";
 import SignIn from "../../module/SignIn/SignIn";
-import ProductPage from "../../module/Product/ProductPage";
+import CategoryPage from "../../module/CategoryProduct/CategoryPage";
 export default function Product() {
   return (
     <>
@@ -13,7 +13,7 @@ export default function Product() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <ProductPage />
+        <CategoryPage />
       </main>
     </>
   );

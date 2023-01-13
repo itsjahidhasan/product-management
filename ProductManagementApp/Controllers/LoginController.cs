@@ -9,7 +9,7 @@ using System.Text;
 
 namespace ProductManagementApp.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("public/")]
     [ApiController]
     [EnableCors]
     public class LoginController : ControllerBase
@@ -18,7 +18,7 @@ namespace ProductManagementApp.Controllers
 
         public LoginController(IConfiguration configuration) => _configuration = configuration;
 
-        [HttpPost()]
+        [HttpPost("login")]
         public bool Login(UserLogin user)
         {
             SqlConnection conn = new SqlConnection(_configuration.GetConnectionString("SqlServer").ToString());

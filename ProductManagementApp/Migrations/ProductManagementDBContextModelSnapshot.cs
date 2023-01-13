@@ -22,7 +22,7 @@ namespace ProductManagementApp.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("ProductManagementApp.Models.Product", b =>
+            modelBuilder.Entity("ProductManagementApp.Models.Catagory", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -30,7 +30,7 @@ namespace ProductManagementApp.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("Model")
+                    b.Property<string>("Discription")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -43,7 +43,7 @@ namespace ProductManagementApp.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("ProductManagementApp.Models.ProductDetail", b =>
+            modelBuilder.Entity("ProductManagementApp.Models.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

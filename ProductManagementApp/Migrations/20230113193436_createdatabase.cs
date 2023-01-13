@@ -8,19 +8,18 @@ namespace ProductManagementApp.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<string>(
-                name: "Name",
-                table: "ProductDetails",
-                type: "nvarchar(max)",
-                nullable: false,
-                defaultValue: "");
+            migrationBuilder.RenameColumn(
+                name: "Model",
+                table: "Products",
+                newName: "Discription");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropColumn(
-                name: "Name",
-                table: "ProductDetails");
+            migrationBuilder.RenameColumn(
+                name: "Discription",
+                table: "Products",
+                newName: "Model");
         }
     }
 }
