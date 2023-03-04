@@ -72,7 +72,7 @@ const CategoryAddEdit = ({ refreshDataTable, ...props }: IProps) => {
               label="Category Name"
               autoComplete="name"
               autoFocus
-              helperText={errors.name?.message}
+              // helperText={errors.name?.message}
               {...register("name")}
             />
             <TextField
@@ -82,7 +82,7 @@ const CategoryAddEdit = ({ refreshDataTable, ...props }: IProps) => {
               label="discription"
               autoComplete="discription"
               autoFocus
-              helperText={errors.discription?.message}
+              // helperText={errors.discription?.message}
               {...register("discription")}
             />
             <Grid container spacing={2}>

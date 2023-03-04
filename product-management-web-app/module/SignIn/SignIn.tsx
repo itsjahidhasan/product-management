@@ -18,6 +18,7 @@ import { useMemo } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import AxiosPost from "../../@Jahid/APIResource/AxiosAPIPost";
 import {routes} from "../../@Jahid/Common/apiRoutes";
+import {frontendLink} from "../../@Jahid/Common/appLink";
 
 function Copyright(props: any) {
   return (
@@ -100,7 +101,7 @@ const SignIn = () => {
               label="Email Address"
               autoComplete="email"
               autoFocus
-              helperText={errors.email?.message}
+              // helperText={errors.email?.message}
               {...register("email")}
             />
             {/*{errors.email && <p>{errors.email.message}</p>}*/}
@@ -110,7 +111,7 @@ const SignIn = () => {
               label="Password"
               type="password"
               id="password"
-              helperText={errors.password?.message}
+              // helperText={errors.password?.message}
               {...register("password")}
             />
             {/*{errors.password && <p>{errors.password.message}</p>}*/}
@@ -135,7 +136,7 @@ const SignIn = () => {
               </Link>
             </Grid>
             <Grid item>
-              <Link href="http://localhost:3000/sign-up" variant="body2">
+              <Link href={frontendLink.PUBLIC.SIGN_UP} variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>

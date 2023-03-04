@@ -95,7 +95,7 @@ const CategoryPage = () => {
           <TableHead>
             <TableRow>
               <StyledTableCell>Category Name</StyledTableCell>
-              <StyledTableCell align="right">Model</StyledTableCell>
+              <StyledTableCell align="right">Description</StyledTableCell>
               <StyledTableCell align="center">Action</StyledTableCell>
             </TableRow>
           </TableHead>
@@ -106,7 +106,7 @@ const CategoryPage = () => {
                   <StyledTableCell component="th" scope="row">
                     {item.name}
                   </StyledTableCell>
-                  <StyledTableCell align="right">{item.model}</StyledTableCell>
+                  <StyledTableCell align="right">{item.discription}</StyledTableCell>
                   <StyledTableCell align="center">
                     <Button
                       variant={"contained"}

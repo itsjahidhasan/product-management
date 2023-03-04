@@ -75,10 +75,10 @@ const AddProduct = ({ catagoryId, refreshDataTable, ...props }: IProps) => {
               margin="normal"
               fullWidth
               id="name"
-              label="Category Name"
+              label="Product Name"
               autoComplete="name"
               autoFocus
-              helperText={errors.name?.message}
+              // helperText={errors.name?.message}
               {...register("name")}
             />
             <TextField
@@ -88,7 +88,7 @@ const AddProduct = ({ catagoryId, refreshDataTable, ...props }: IProps) => {
               label="ROM"
               autoComplete="ram"
               autoFocus
-              helperText={errors.ram?.message}
+              // helperText={errors.ram?.message}
               {...register("ram")}
             />
             <TextField
@@ -98,7 +98,7 @@ const AddProduct = ({ catagoryId, refreshDataTable, ...props }: IProps) => {
               label="ROM"
               autoComplete="rom"
               autoFocus
-              helperText={errors.rom?.message}
+              // helperText={errors.rom?.message}
               {...register("rom")}
             />
             <TextField
@@ -108,7 +108,7 @@ const AddProduct = ({ catagoryId, refreshDataTable, ...props }: IProps) => {
               label="Processor"
               autoComplete="processor"
               autoFocus
-              helperText={errors.processor?.message}
+              // helperText={errors.processor?.message}
               {...register("processor")}
             />
             <TextField
@@ -118,7 +118,7 @@ const AddProduct = ({ catagoryId, refreshDataTable, ...props }: IProps) => {
               label="Price"
               autoComplete="price"
               autoFocus
-              helperText={errors.price?.message}
+              // helperText={errors.price?.message}
               {...register("price")}
             />
             <TextField
@@ -128,7 +128,7 @@ const AddProduct = ({ catagoryId, refreshDataTable, ...props }: IProps) => {
               label="Quantity"
               autoComplete="quantity"
               autoFocus
-              helperText={errors.quantity?.message}
+              // helperText={errors.quantity?.message}
               {...register("quantity")}
             />
             <Grid container spacing={2}>

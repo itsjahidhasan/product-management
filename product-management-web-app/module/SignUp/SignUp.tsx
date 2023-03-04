@@ -16,6 +16,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Face6Outlined } from "@mui/icons-material";
 import AxiosPost from "../../@Jahid/APIResource/AxiosAPIPost";
 import {routes} from "../../@Jahid/Common/apiRoutes";
+import {frontendLink} from "../../@Jahid/Common/appLink";
 
 function Copyright(props: any) {
   return (
@@ -91,7 +92,7 @@ const SignUpForm = () => {
               label="Full Name"
               autoComplete="email"
               autoFocus
-              helperText={errors.name?.message}
+              // helperText={errors.name?.message}
               {...register("name")}
             />
             <TextField
@@ -101,7 +102,7 @@ const SignUpForm = () => {
               label="Email Address"
               autoComplete="email"
               autoFocus
-              helperText={errors.email?.message}
+              // helperText={errors.email?.message}
               {...register("email")}
             />
             <TextField
@@ -110,7 +111,7 @@ const SignUpForm = () => {
               label="Password"
               type="password"
               id="password"
-              helperText={errors.password?.message}
+              // helperText={errors.password?.message}
               {...register("password")}
             />
 
@@ -120,7 +121,7 @@ const SignUpForm = () => {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign In
+              Sign Up
             </Button>
           </form>
 
@@ -133,7 +134,7 @@ const SignUpForm = () => {
                   alignItems: "center",
                 }}
               >
-                <Link href="http://localhost:3000/sign-in" variant="body2">
+                <Link href={frontendLink.PUBLIC.SIGN_IN} variant="body2">
                   {"Already have an Account? Sign In"}
                 </Link>
               </Box>

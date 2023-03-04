@@ -17,7 +17,7 @@ namespace ProductManagementApp.Controllers
         public CatagoryController(ProductManagementDBContext context) => _context = context;
         [HttpGet("category")]
         public async Task<IEnumerable<Catagory>> Get()
-            => await _context.Products.ToListAsync();
+            => await _context.Products.OrderByDescending(x => x.Id).ToListAsync();
 
 
         [HttpGet("category/{id}")]

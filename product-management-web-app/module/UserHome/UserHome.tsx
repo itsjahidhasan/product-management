@@ -5,10 +5,10 @@ import { useRouter } from "next/router";
 const UserHome = () => {
   const router = useRouter();
   const gotoSignUp = () => {
-    router.push("sign-up");
+    router.push("/sign-up");
   };
   const gotoSignIn = () => {
-    router.push("sign-in");
+    router.push("/sign-in");
   };
   return (
     <Container>
